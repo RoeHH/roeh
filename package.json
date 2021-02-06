@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "cool website",
   "scripts": {
-    "build": "ncc build src/render.ts && node dist/index.js",
+    "build": "ncc build src/render.ts && node dist/index.js  && c new V",
     "test": "ncc build src/test.ts && node dist/index.js",
     "lint": "prettier -w .",
     "postinstall": "npm run build"
