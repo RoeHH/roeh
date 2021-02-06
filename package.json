@@ -4,6 +4,7 @@
   "description": "cool website",
   "scripts": {
     "build": "ncc build src/render.ts && node dist/index.js",
+    "test": "ncc build src/test.ts && node dist/index.js",
     "lint": "prettier -w .",
     "postinstall": "npm run build"
   },
@@ -21,6 +22,7 @@
   "dependencies": {
     "@vercel/ncc": "^0.27.0",
     "ejs": "^3.1.5",
+    "nano-markdown": "^1.2.1",
     "prettier": "^2.2.1",
     "typescript": "^4.1.3"
   },

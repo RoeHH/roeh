@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+
 body {
   padding: 0;
   margin: 0;
@@ -47,7 +48,7 @@ body {
   transform: translateY(-1rem);
 }
 
-.card:hover ~ .card {
+.card:hover~.card {
   transform: translateX(130px);
 }
 
@@ -90,7 +91,7 @@ body {
   color: #7a7a8c;
 }
 
-.card-header h2:hover {
+h2:hover {
   background: linear-gradient(90deg, #cd9441, #dfcd77);
   text-shadow: none;
   background-clip: text;
@@ -98,18 +99,18 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.card-header {
+header {
   margin-bottom: auto;
   margin-bottom: 20px;
 }
 
-.card-header p {
+header h3 {
   font-size: 14px;
-  margin: 0 0 1rem;
+  margin: 0 0 1rem ;
   color: #7a7a8c;
 }
 
-.card-header h2 {
+h2 {
   font-size: 20px;
   margin: 0.25rem 0 auto;
   cursor: default;

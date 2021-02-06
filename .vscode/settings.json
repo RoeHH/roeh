@@ -1,5 +1,6 @@
 {
   "prettier.requireConfig": false,
   "editor.formatOnSave": true,
-  "prettier.tabWidth": 2
+  "prettier.tabWidth": 2,
+  "compile-hero.disable-compile-files-on-did-save-code": false
 }

@@ -18,10 +18,9 @@
         <% articles.forEach(article => { %>
             <article class="card">
                 <header class="card-header">
-                    <p><%= article.date %></p>
-                    <h2><%= article.title %></h2>
+                    <%- article.header %>
                 </header>
-                <%= article.text %>
+                <%- article.text %>
                 <div class="card-author">
                     <div class="author-avatar" href="#">
                         <img src="./img/avatar.jpg">
