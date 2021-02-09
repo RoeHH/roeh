@@ -156,3 +156,12 @@ div {
 svg {
   cursor: default;
 }
+
+@media screen and (max-width: 700px) {
+  header.header {
+      clip-path: polygon(50% 0px, 100% 0px, 99.72% 85.75%, 50% 100%, 5px 85.75%, 0px 0px);  
+  }
+  .logo {
+    width: 70%;
+  }
+}

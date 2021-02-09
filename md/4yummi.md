@@ -1,4 +1,4 @@
-### Sep 2020
+### Sep-Dez 2020
 
 ## Yuumi Discord-Bot
 
