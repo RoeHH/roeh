@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/ich/roeh/public
+    - export DEPLOYPATH=/home/ich/roeh/
     - /bin/cp -R public $DEPLOYPATH
