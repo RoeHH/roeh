@@ -1,4 +1,4 @@
 [[headers]]
 for = "/public/mod.ts"
   [headers.values]
-    Content-Type: text/x.typescript
+    media-type: text/x.typescript
