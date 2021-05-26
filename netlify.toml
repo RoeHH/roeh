@@ -1,4 +1,0 @@
-[[headers]]
-for = "/public/mod.ts"
-  [headers.values]
-    media-type: text/x.typescript
