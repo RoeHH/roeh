@@ -1,2 +1,2 @@
-import { Application } from "https://deno.land/x/abc@v1/mod.ts";
+import { * } from "https://bitbucket.org/iccee0/calc/raw/c9045cfde50dc04b9bcbb14476a91a9defb093dd/calc.ts";
 export Application;
