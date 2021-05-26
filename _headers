@@ -1,2 +1,2 @@
 /public/mod.ts
-  content-type: text/x.typescript
+  Content-Type: application/x-javascript; charset=utf-8
