@@ -1,70 +1,29 @@
-import ejs from 'ejs';
-import { defaultMaxListeners } from 'events';
-import fs from 'fs';
-import { join } from 'path';
-var nmd = require('nano-markdown');
+import { renderToString } from 'https://deno.land/x/dejs/mod.ts';
+import { MongoProject } from '../../roeh-x-cli/mongo.ts';
+import { siteStart, template } from './template.ts';
 
-interface Article {
-  header: string,
-  text: string
+let siteContent = siteStart;
+
+const articles = await MongoProject.find(undefined, {
+  noCursorTimeout: false,
+} as any).toArray();
+
+for (const article of articles) {
+    siteContent += await renderToString(template, {
+        buildDate: article.buildDate,
+        appName: article.appName,
+        description: article.description,
+        roehDescription: article.roehDescription,
+        cloneUrl: article.cloneUrl,
+        productiveUrl: article.productiveUrl,
+    });
 }
 
-interface Data {
-  [key: string]: any;
-  articles: Article[];
-}
+siteContent += `
+   </section>
+</body>
+</html>`;
 
-var datas: Data = {
-  articles: [],
-};
+const write = Deno.writeTextFile('./public/index.html', siteContent);
 
-const directoryPath = './md';
-
-function getContent(): any {
-  fs.readdir(directoryPath, function (err: any, files: any) {
-    if (err) {
-      console.log('Error getting directory information.');
-    } else {
-      files.forEach(function (file: any) {
-        fs.readFile(
-          directoryPath + `/${file}`,
-          'utf8',
-          function (err: any, data: any) {
-            if (err) {
-              console.log(err);
-            }
-            var d = nmd(data);
-            var article: Article = { header: "",text: "",};
-            article.header = d.substr(0, d.indexOf('<p>'));
-            article.text = d.substr(d.indexOf('<p>'))
-            datas.articles.push(article);
-          }
-        );
-      });
-    }
-  });
-}
-
-getContent();
-
-setTimeout(f1, 3000);
-
-function f1() {
-  datas.articles.forEach((element) => {
-    console.log('(-----------');
-    console.log(element);
-    console.log('------------)');
-  });
-
-  
-  Object.freeze(datas);
-
-  var path = require('path');
-  const outputPath = path.join(process.cwd(), './public/index.html');
-  if (fs.existsSync(outputPath)) fs.unlinkSync(outputPath);
-  console.log(outputPath);
-
-  const template = fs.readFileSync(join(__dirname, 'index.ejs'), 'utf-8');
-  const html = ejs.render(template, datas);
-  fs.writeFileSync(outputPath, html, 'utf8');
-}
+write.then(() => console.log('Wrote index.html'));
